@@ -105,7 +105,7 @@ $(document).ready(function () {
             drinkDiv.append(directionsP);
 
             // This line actually pushes everything to the DOM so it's visible to the end user. 
-            $(".cocktails").prepend(drinkDiv);
+            $(".cocktails").append(drinkDiv);
         })
 
         // reset input field to blank
@@ -114,6 +114,12 @@ $(document).ready(function () {
         $(".tunes").show();
 
 
+        // ATTEMPTED TO ADD FUNCTION TO ALLOW ENTER KEY TO TRIGGER ONCLICK
+        // $( "#searchBtn" ).keydown(function( event ) {
+        //     if ( event.which == 13 ) {
+        //      event.preventDefault();
+        //     }
+        // });
 
 
     }); // end on.("click" event - lots of stuff happened in there...

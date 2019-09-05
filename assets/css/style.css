@@ -26,7 +26,23 @@ h1 {
     font-size: 35px;
 }
 
-h3, p {
+h3 {
     font-family: 'Shadows Into Light', cursive;
     color:  #D1D1D1;
+}
+
+p {
+    font-family: 'Shadows Into Light', cursive;
+    color:  #D1D1D1;
+    font-size: 25px;
+}
+
+#searchInput, #searchMusic {
+    font-family: 'Shadows Into Light', cursive;
+    color:  #D1D1D1;
+    font-size: 20px;
+}
+
+i.fa-headphones {
+    font-size: 800%;
 }
