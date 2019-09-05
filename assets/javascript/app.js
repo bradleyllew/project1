@@ -52,6 +52,7 @@ $(document).ready(function () {
     // The cocktailDB API call - user input
     $("#searchBtn").on("click", function () {
 
+
         //reset these arrays to empty so we don't keep adding into them
         drinkIngreds = [];
         drinkMeasrs = [];
@@ -119,17 +120,13 @@ $(document).ready(function () {
             drinkDiv.append(directionsP);
 
             // This line actually pushes everything to the DOM so it's visible to the end user. 
-            $(".cocktails").prepend(drinkDiv);
+            $(".cocktails").append(drinkDiv);
         })
 
         // reset input field to blank
         $("#searchInput").val("");
 
         $(".tunes").show();
-
-
-
-
     }); // end on.("click" event - lots of stuff happened in there...
 
     ///////////////////////////////////////////////////////////////////
