@@ -37,9 +37,9 @@ $(document).ready(function () {
 
 
     // The cocktailDB API call - user input
-    $(".searchBtn").on("click", function (event) {
-        
-        event.preventDefault();
+    $(".searchBtn").on("click", function () {
+
+
         //reset these arrays to empty so we don't keep adding into them
         drinkIngreds = [];
         drinkMeasrs = [];
