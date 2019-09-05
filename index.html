@@ -1,50 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script rel="stylesheet" href="assets/css/reset.css"></script>
-    <script rel="stylesheet" href="assets/css/style.css"></script>
+    <link rel="stylesheet" href="assets/css/reset.css"></link>
+    <link rel="stylesheet" href="assets/css/style.css"></link>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="assets/javascript/app.js"></script>
-    <title>Project1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+    <title>House Party</title>
 </head>
+
 <body>
 
-    <header>
-        <h1>House Party</h1>
-        <hr class="line">
-    </header>
+    <div class="container">
+        <header>
+            <h1>House Party</h1>
+            <hr class="line">
+        </header>
 
 
-    <div class="search">
-        <!-- <h5>What's your poison?</h5> -->
-        <input type="text" id="searchInput" placeholder="What's your poison?">
-        <button type="submit" value="Search" id="searchBtn">Search</button>
-        <hr>
+        <div class="search">
+            <!-- <h5>What's your poison?</h5> -->
+            <input type="text" id="searchInput" placeholder="What's your poison?">
+            <button type="submit" value="Search" id="searchBtn">Search</button>
+            <hr>
+        </div>
+        <div class="cocktails">
+
+            <hr>
+        </div>
+
+
+        <div class="tunes">
+            <p>Ready for some tunes to kick the party off?</p>
+            <input type="text" id="searchMusic" placeholder="Today's music mood?">
+            <button type="submit" value="Search" id="searchMusicBtn">Find Playlist</button>
+            <hr>
+        </div>
+
+        <div class="playlists">
+
+            <hr>
+        </div>
+
+        <iframe id="player" width="853" height="480" src="" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br>
+        <button type="submit" value="submit" id="back-button">Back to Results</button>
     </div>
-    <div class="cocktails">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-        <hr>
-    </div>
-    
-
-    <div class="tunes">
-        <p>Ready for some tunes to kick the party off?</p>
-        <input type="text" id="searchMusic" placeholder="Today's music mood?">
-        <button type="submit" value="Search" id="searchMusicBtn">Find Playlist</button>
-        <hr>
-    </div>
-
-    <div class="playlists">
-
-        <hr>
-    </div>
-    
-    <iframe id="player" width="853" height="480" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <br>
-    <button type="submit" value="submit" id="back-button">Back to Results</button>
 
 </body>
+
 </html>
