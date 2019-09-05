@@ -35,6 +35,19 @@ $(document).ready(function () {
     // Main Process
     // ================================================================
 
+    // code to search either input with enter key 
+    $("#searchInput").keyup(function (event) {
+        if (event.keyCode === 13) {
+            $("#searchBtn").click();
+        }
+    });
+
+    $("#searchMusic").keyup(function (event) {
+        if (event.keyCode === 13) {
+            $("#searchMusicBtn").click();
+        }
+    });
+
 
     // The cocktailDB API call - user input
     $("#searchBtn").on("click", function () {
