@@ -1,5 +1,7 @@
+
+
 body {
-    font-family: 'Shadows Into Light', cursive, #D1D1D1;
+    font-family: 'Shadows Into Light', cursive, white;
 }
 
 html {
@@ -10,9 +12,12 @@ html {
     background-size: cover;
    }
 
-h1 {
+.container > div{
     display: flex;
-    justify-content: center;
+    /* TO MAKE ALL RESPONSIVE */
+    flex: 1;
+    /* TO PUT OBJS ON NEXT ROW */
+    flex-wrap: wrap;
 }
 
 .drink-pic {
@@ -22,27 +27,32 @@ h1 {
 
 ::placeholder {
     font-family: 'Shadows Into Light', cursive;
+    color: white;
     font-weight: bold;
     font-size: 35px;
 }
 
 h3 {
     font-family: 'Shadows Into Light', cursive;
-    color:  #D1D1D1;
+    color: white;
 }
 
 p {
     font-family: 'Shadows Into Light', cursive;
-    color:  #D1D1D1;
+    color: white;
+    font-weight: bold;
     font-size: 25px;
 }
 
 #searchInput, #searchMusic {
     font-family: 'Shadows Into Light', cursive;
-    color:  #D1D1D1;
+    color: white;
     font-size: 20px;
 }
 
 i.fa-headphones {
     font-size: 800%;
 }
+
+  
+  

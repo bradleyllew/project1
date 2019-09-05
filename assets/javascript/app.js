@@ -35,9 +35,11 @@ $(document).ready(function () {
     // Main Process
     // ================================================================
 
-    // The cocktailDB API call - user input
-    $("#searchBtn").on("click", function () {
 
+    // The cocktailDB API call - user input
+    $(".searchBtn").on("click", function (event) {
+        
+        event.preventDefault();
         //reset these arrays to empty so we don't keep adding into them
         drinkIngreds = [];
         drinkMeasrs = [];
@@ -112,16 +114,6 @@ $(document).ready(function () {
         $("#searchInput").val("");
 
         $(".tunes").show();
-
-
-        // ATTEMPTED TO ADD FUNCTION TO ALLOW ENTER KEY TO TRIGGER ONCLICK
-        // $( "#searchBtn" ).keydown(function( event ) {
-        //     if ( event.which == 13 ) {
-        //      event.preventDefault();
-        //     }
-        // });
-
-
     }); // end on.("click" event - lots of stuff happened in there...
 
     ///////////////////////////////////////////////////////////////////
@@ -159,7 +151,7 @@ $(document).ready(function () {
 
                 var playlistImg = $("<img>");
                 playlistImg.addClass('playlist-pic').attr("src", playlistData[m].snippet.thumbnails.medium.url);
-                
+
                 var link = $("<a>");
                 link.addClass("playlist-links");
                 link.html("<h3>" + playlistChoices[m] + "</h3>");
@@ -173,7 +165,7 @@ $(document).ready(function () {
                 link.append(lineBreak);
                 playlistDiv.append(link);
                 playlistDiv.attr("data-id", embedLink);
- 
+
                 $(".playlists").append(playlistDiv);
             };
 
