@@ -1,5 +1,5 @@
 body {
-    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Shadows Into Light', cursive, #D1D1D1;
 }
 
 html {
@@ -18,5 +18,14 @@ h1 {
 .drink-pic {
     height: 30%;
     width: 30%;
+}
 
+::placeholder {
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+h3, p {
+    color:  #D1D1D1;
 }
