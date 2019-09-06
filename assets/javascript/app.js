@@ -38,6 +38,7 @@ $(document).ready(function () {
     // The cocktailDB API call - user input
     $("#searchBtn").on("click", function () {
 
+        $(".drink-div").empty();
         //reset these arrays to empty so we don't keep adding into them
         drinkIngreds = [];
         drinkMeasrs = [];
@@ -106,6 +107,26 @@ $(document).ready(function () {
 
             // This line actually pushes everything to the DOM so it's visible to the end user. 
             $(".cocktails").prepend(drinkDiv);
+
+            //on error or empty query, run this - gets 3 random drinks as suggestions
+        }).fail(function(cocktailError) {
+            console.log(cocktailError);
+            for (var r = 1; r < 4; r++){
+                $.ajax({
+                    url: "https://www.thecocktaildb.com/api/json/v1/1/random.php",
+                    method: "GET"
+                }).then(function (randomReturn) {
+                    console.log(randomReturn);
+                })
+
+
+
+
+
+
+            }
+
+
         })
 
         // reset input field to blank
