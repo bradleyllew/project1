@@ -16,15 +16,12 @@ $(document).ready(function () {
     var drinkName = "";
     var measuresIngredients = [];
 
-    /////////////////////////////////////////////////////////////////////////
     var YouTubeKey = "&key=AIzaSyACSXoiBj6astRGCQf_03G39FP5pO_YmhY";
     var YouTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=playlist" + YouTubeKey;
     var YouTubeQuery = "";
     var YouTubeQueryURL = "";
     var playlistChoices = [];
     var playlistLinks = [];
-    //////////////////////////////////////////////////////////////////////////
-
 
     //hide the .cocktails div until there is something to display & the tunes section until a drink is picked
     $(".cocktails").hide();
@@ -47,7 +44,6 @@ $(document).ready(function () {
             $("#searchMusicBtn").click();
         }
     });
-
 
     // The cocktailDB API call - user input
     $("#searchBtn").on("click", function () {
@@ -128,7 +124,6 @@ $(document).ready(function () {
         $(".tunes").show();
     }); // end on.("click" event - lots of stuff happened in there...
 
-    ///////////////////////////////////////////////////////////////////
     // grabbing search term and searching api
     $("#searchMusicBtn").on("click", function () {
 
@@ -144,6 +139,8 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (playlistDataReturn) {
 
+            console.log(playlistDataReturn);
+
             $("#player").hide();
             $(".playlists").show();
             $(".playlists").empty();
@@ -153,34 +150,37 @@ $(document).ready(function () {
             var playlistData = playlistDataReturn.items;
             console.log(playlistData);
 
-            // generate 5 playlists with an image and text link
-            for (m = 0; m < 5; m++) {
-                playlistChoices.push(playlistData[m].snippet.title);
-                playlistLinks.push("https://www.youtube.com/playlist?list=" + playlistData[m].id.playlistId);
-                var embedLink = "https://www.youtube.com/embed/playlist?list=" + playlistData[m].id.playlistId;
+            if (playlistData.length === 0) {
+                $(".modal").modal();
+                $("#YouTubeFail").modal('open');
+            } else {
 
-                var playlistDiv = $("<div>").addClass('playlists-div');
+                // generate 5 playlists with an image and text link
+                for (m = 0; m < 5; m++) {
+                    playlistChoices.push(playlistData[m].snippet.title);
+                    playlistLinks.push("https://www.youtube.com/playlist?list=" + playlistData[m].id.playlistId);
+                    var embedLink = "https://www.youtube.com/embed/playlist?list=" + playlistData[m].id.playlistId;
 
-                var playlistImg = $("<img>");
-                playlistImg.addClass('playlist-pic').attr("src", playlistData[m].snippet.thumbnails.medium.url);
+                    var playlistDiv = $("<div>").addClass('playlists-div');
 
-                var link = $("<a>");
-                link.addClass("playlist-links");
-                link.html("<h3>" + playlistChoices[m] + "</h3>");
-                //link.attr("href", playlistLinks[m]);
-                //link.attr("target", "_blank")
+                    var playlistImg = $("<img>");
+                    playlistImg.addClass('playlist-pic').attr("src", playlistData[m].snippet.thumbnails.medium.url);
 
-                var lineBreak = $("<br>");
+                    var link = $("<a>");
+                    link.addClass("playlist-links");
+                    link.html("<h3>" + playlistChoices[m] + "</h3>");
 
-                // writing to DOM
-                link.prepend(playlistImg);
-                link.append(lineBreak);
-                playlistDiv.append(link);
-                playlistDiv.attr("data-id", embedLink);
+                    var lineBreak = $("<br>");
 
-                $(".playlists").append(playlistDiv);
+                    // writing to DOM
+                    link.prepend(playlistImg);
+                    link.append(lineBreak);
+                    playlistDiv.append(link);
+                    playlistDiv.attr("data-id", embedLink);
+
+                    $(".playlists").append(playlistDiv);
+                };
             };
-
             // function that embeds selected video
             $(".playlists-div").on("click", function () {
 
@@ -198,15 +198,11 @@ $(document).ready(function () {
                 $("#back-button").hide();
                 $("#player").hide();
             });
-
         });
 
     });
-    ////////////////////////////////////////////////////////////////////
 
-    //Random Drink - button
-
-
+    // Random Drink - button
     // FUNCTIONS to be called by Main Process section
     // ================================================================
 
