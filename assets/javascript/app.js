@@ -35,10 +35,23 @@ $(document).ready(function () {
     // Main Process
     // ================================================================
 
+    // code to search either input with enter key 
+    $("#searchInput").keyup(function (event) {
+        if (event.keyCode === 13) {
+            $("#searchBtn").click();
+        }
+    });
+
+    $("#searchMusic").keyup(function (event) {
+        if (event.keyCode === 13) {
+            $("#searchMusicBtn").click();
+        }
+    });
+
+
     // The cocktailDB API call - user input
     $("#searchBtn").on("click", function () {
 
-        $(".drink-div").empty();
         //reset these arrays to empty so we don't keep adding into them
         drinkIngreds = [];
         drinkMeasrs = [];
@@ -106,37 +119,13 @@ $(document).ready(function () {
             drinkDiv.append(directionsP);
 
             // This line actually pushes everything to the DOM so it's visible to the end user. 
-            $(".cocktails").prepend(drinkDiv);
-
-            //on error or empty query, run this - gets 3 random drinks as suggestions
-        }).fail(function(cocktailError) {
-            console.log(cocktailError);
-            for (var r = 1; r < 4; r++){
-                $.ajax({
-                    url: "https://www.thecocktaildb.com/api/json/v1/1/random.php",
-                    method: "GET"
-                }).then(function (randomReturn) {
-                    console.log(randomReturn);
-                })
-
-
-
-
-
-
-            }
-
-
+            $(".cocktails").append(drinkDiv);
         })
 
         // reset input field to blank
         $("#searchInput").val("");
 
         $(".tunes").show();
-
-
-
-
     }); // end on.("click" event - lots of stuff happened in there...
 
     ///////////////////////////////////////////////////////////////////
@@ -174,7 +163,7 @@ $(document).ready(function () {
 
                 var playlistImg = $("<img>");
                 playlistImg.addClass('playlist-pic').attr("src", playlistData[m].snippet.thumbnails.medium.url);
-                
+
                 var link = $("<a>");
                 link.addClass("playlist-links");
                 link.html("<h3>" + playlistChoices[m] + "</h3>");
@@ -188,7 +177,7 @@ $(document).ready(function () {
                 link.append(lineBreak);
                 playlistDiv.append(link);
                 playlistDiv.attr("data-id", embedLink);
- 
+
                 $(".playlists").append(playlistDiv);
             };
 
