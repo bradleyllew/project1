@@ -28,6 +28,8 @@ $(document).ready(function () {
     $(".tunes").hide();
     $("#player").hide();
     $("#back-button").hide();
+    $("#modalDrinkFail").hide();
+    $("#drinkInputFail").hide();
 
     // Main Process
     // ================================================================
@@ -45,12 +47,37 @@ $(document).ready(function () {
         }
     });
 
+    $(".randomDrinkButton").on("click", function () {
+        getRandomDrink();
+    });
+
+    $(".jumpToYouTubeSearch").on("click", function () {
+        $(".tunes").show();
+    });
+
+
     // The cocktailDB API call - user input
     $("#searchBtn").on("click", function () {
+
+        if ($("#searchInput").val() === "" || $("#searchInput").val() === " " || $("#searchInput").val() === null) {
+            $("#searchInput").val("");
+
+            //initializes modals
+            $(".modal").modal();
+            // triggers the modal with id #modalDrinkFail
+            $('#drinkInputFail').modal('open');
+            $("#modalDrinkFail").hide();
+
+            // stops the below code from running & generating errors on the page
+            return;
+        }
 
         //reset these arrays to empty so we don't keep adding into them
         drinkIngreds = [];
         drinkMeasrs = [];
+
+        //empty the .cocktails div so we have only one drink showing at a time
+        $(".cocktails").empty();
 
         cocktailQuery = encodeURIComponent($("#searchInput").val().trim()); //cleans user input - spaces --> %20 which are needed for this API's calls
         //building the query URL
@@ -63,11 +90,27 @@ $(document).ready(function () {
             method: "GET"
             // this executes once the promise comes back
         }).then(function (cocktailDataReturn) {
-            // show the .cocktails div now that we have something to put in it
-            $(".cocktails").show();
+            
+            //check for "null" return (meaning, the search failed)
+            var drinkNullCheck = cocktailDataReturn.drinks;
+            console.log(drinkNullCheck);
+            if (drinkNullCheck === null) {
+                // alert("we didn't find that. Try again");
+                //initializes modals
+                $(".modal").modal();
+                // triggers the modal with id #modalDrinkFail
+                $('#modalDrinkFail').modal('open');
+                $("#drinkInputFail").hide();
+                // stops the below code from running & generating errors on the page
+                return;
+            }
+
             // set returned data to drinkData - easier to type/read
             var drinkData = cocktailDataReturn.drinks[0];
             console.log(drinkData);
+
+            // show the .cocktails div now that we have something to put in it
+            $(".cocktails").show();
 
             // each drink has 15 ingredient fields - whether used or not. This loop only pushes the actual ingredients into the drinkIngreds array
             for (var i = 1; i < 16; i++) {
@@ -114,7 +157,7 @@ $(document).ready(function () {
             drinkDiv.append(ingredsP);
             drinkDiv.append(directionsP);
 
-            // This line actually pushes everything to the DOM so it's visible to the end user. 
+            // Push everything to the DOM so it's visible to the end user. 
             $(".cocktails").append(drinkDiv);
         })
 
@@ -122,7 +165,7 @@ $(document).ready(function () {
         $("#searchInput").val("");
 
         $(".tunes").show();
-    }); // end on.("click" event - lots of stuff happened in there...
+    }); // end on.("click" event - lots of stuff happened in there... this should probably be refactored. I see some opportunities to write separate functions and call them inside this event. Would be a lot more agile... ~JH
 
     // grabbing search term and searching api
     $("#searchMusicBtn").on("click", function () {
@@ -216,41 +259,80 @@ $(document).ready(function () {
         };
     }
 
+    function getRandomDrink() {
+        $.ajax({
+            url: "https://www.thecocktaildb.com/api/json/v1/1/random.php",
+            method: "GET"
+            // this executes once the promise comes back
+        }).then(function (cocktailDataReturn) {
+
+            // show the .cocktails div now that we have something to put in it
+            $(".cocktails").show();
+
+            
+
+            // set returned data to drinkData - easier to type/read
+            var drinkData = cocktailDataReturn.drinks[0];
+            console.log(drinkData);
+
+            // show the .cocktails div now that we have something to put in it
+            $(".cocktails").show();
 
 
+            // each drink has 15 ingredient fields - whether used or not. This loop only pushes the actual ingredients into the drinkIngreds array
+            for (var i = 1; i < 16; i++) {
+                ingred = eval("drinkData.strIngredient" + i);
+                console.log("ingred: " + ingred);
+                if (ingred !== "" && ingred !== " " && ingred !== null) {
+                    drinkIngreds.push(ingred);
+                }
+            }
+            console.log(drinkIngreds);
 
+            // same thing as above but for the ingredient measurements
+            for (var j = 1; j < 16; j++) {
+                measr = eval("drinkData.strMeasure" + j);
+                console.log(measr);
+                if (measr != "" && measr != " " && measr !== null) {
+                    drinkMeasrs.push(measr);
+                }
+            }
+            console.log(drinkMeasrs);
 
+            //pull the info we want to display from the returned data
+            drinkInstr = drinkData.strInstructions;
+            drinkName = drinkData.strDrink;
+            drinkThumb = drinkData.strDrinkThumb;
 
+            console.log(drinkInstr);
+            console.log(drinkName);
+            console.log(drinkThumb);
 
+            // DOM stuff - creating elements to place our content
 
+            getMeasuresIngreds();
 
+            var drinkDiv = $("<div>").addClass('drink-div');
+            var drinkImg = $("<img>");
+            drinkImg.addClass('drink-pic').attr("src", drinkThumb);
+            bevName = $("<h3>").text(drinkName);
+            ingredsP = $("<p>").text("Ingredients: " + measuresIngredients.join(", "));
+            directionsP = $("<p>").text("Directions: " + drinkInstr);
 
+            drinkDiv.append(bevName);
+            drinkDiv.append(drinkImg);
+            drinkDiv.append(ingredsP);
+            drinkDiv.append(directionsP);
 
+            // This line pushes everything to the DOM so it's visible to the end user. 
+            $(".cocktails").append(drinkDiv);
+        })
 
+        // reset input field to blank
+        $("#searchInput").val("");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        $(".tunes").show();
+    };
 
 
 }) // le fin
