@@ -58,6 +58,10 @@ $(document).ready(function () {
         getRandomDrink();
     });
 
+    $("#randomBtn").on("click", function () {
+        getRandomDrink();
+    });
+
     $(".jumpToYouTubeSearch").on("click", function () {
         $(".tunes").show();
     });
