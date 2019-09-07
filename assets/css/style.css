@@ -21,8 +21,8 @@ html {
 }
 
 .drink-pic {
-    height: 30%;
-    width: 30%;
+    /* height: 30%;
+    width: 30%; */
 }
 
 ::placeholder {
@@ -41,7 +41,8 @@ p {
     font-family: 'Shadows Into Light', cursive;
     color: white;
     font-weight: bold;
-    font-size: 25px;
+    /* font-size: 25px; */
+    font-size: 1.5rem;
 }
 
 #searchInput, #searchMusic {
@@ -75,5 +76,5 @@ i.fa-headphones {
 }
   
 .ingredients-div {
-    margin-top: 27.253px;
+    margin-top: 6rem;
 }
