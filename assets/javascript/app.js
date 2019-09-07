@@ -37,6 +37,7 @@ $(document).ready(function () {
     $("#hide-show").hide();
     $("#modalDrinkFail").hide();
     $("#drinkInputFail").hide();
+    $("#YouTubeNoInput").hide();
 
     // Main Process
     // ================================================================
@@ -191,7 +192,10 @@ $(document).ready(function () {
 
             $(".modal").modal();
             $("#YouTubeNoInput").modal('open');
+            $("#modalDrinkFail").hide();
+            $("#drinkInputFail").hide();
             $("#searchMusic").val("");
+            $("#YouTubeNoInput").modal('hide');
 
         } else {
             // ajax call
@@ -217,7 +221,13 @@ $(document).ready(function () {
 
                     $(".modal").modal();
                     $("#YouTubeFail").modal('open');
+                    
+                    $("#modalDrinkFail").hide();
+                    $("#drinkInputFail").hide();
                     $("#searchMusic").val("");
+                    $("#YouTubeNoInput").hide();
+                    
+                
 
                 } else {
 
