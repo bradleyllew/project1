@@ -23,31 +23,63 @@
         <!-- PLACEHOLDER FOR LOGO -->
         <div class="row" id="logoRow">
             <!-- CANT GET ICON TO RESIZE OR CENTER???? -->
-            <div class="col-md-8">
-                <i class="fas fa-headphones fa-7x" id="logo"></i>
+            <div class="col s12 center-align">
+                <!-- <i class="fas fa-headphones fa-7x" id="logo"></i> -->
+                <img id="searchImg" src="assets/images/HousePartLarge800.png">
             </div>
         </div>
 
         <br>
 
+        <div class="row button-row">
+            <div class="col s6">
+                <div class="search">
+                    <input type="text" id="searchInput" placeholder="Pick your poison!">
+                    <!-- <button type="submit" value="Search" id="searchBtn">Search</button> -->
+                    <!-- CHANGED BUTTON DESIGN, ADDED DARK SHADOW, AND ADDED ICON -->
+                    <a class="waves-effect waves-light btn z-depth-5" id="searchBtn"><i class="fas fa-cocktail"></i>
+                        search</a>
+                    <a class="waves-effect waves-light btn z-depth-5" id="randomBtn"><i class="fas fa-cocktail"></i>
+                        random</a>
+
+                </div>
+
+            </div>
+            <div class="col s6">
+                <div class="tunes">
+                    <!-- REMOVED P TAG BEZ SEEMS UNNECESSARY??? -->
+                    <!-- <p>Ready for some tunes to kick the party off?</p> -->
+                    <input type="text" id="searchMusic" placeholder="Music for your mood!">
+                    <!-- <button type="submit" value="Search" id="searchMusicBtn">Find Playlist</button> -->
+                    <!-- CHANGED BUTTON DESIGN, ADDED DARK SHADOW, AND ADDED ICON -->
+                    <a class="waves-effect waves-light btn z-depth-5" id="searchMusicBtn"><i class="fas fa-music"></i>
+                        search</a>
+                </div>
+
+            </div>
+
+        </div>
+
         <!-- div for drink result -->
-        <div class="row">
-            <div class="cocktails">
+        <div class="row cocktail-row">
+            <div class="col s6">
+                    <div class="cocktails">
+                    </div>
+            </div>
+            <div class="col s6">
+                <div class="ingredients-div">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row directions-row">
+            <div class="col s12">
+                <div class="directions-div">
+                    
+                </div>
             </div>
 
-            <br>
-            <!-- <h5>What's your poison?</h5> -->
-            <!-- ATTEMPTED CHANGING TO FORM -->
-            <!-- <form id="poison"> -->
-            <div class="search">
-                <input type="text" id="searchInput" placeholder="Pick your poison!">
-                <!-- <button type="submit" value="Search" id="searchBtn">Search</button> -->
-                <!-- CHANGED BUTTON DESIGN, ADDED DARK SHADOW, AND ADDED ICON -->
-                <a class="waves-effect waves-light btn z-depth-5" id="searchBtn"><i class="fas fa-cocktail"></i>
-                    search</a>
-
-            </div>
-            <!-- </form> -->
         </div>
 
 
@@ -60,32 +92,16 @@
             <div id="YouTubeFail" class="modal">
                 <div class="modal-content">
                     <h4>Sorry! That search didn't turn anything up</h4>
-                    <p>Try searching either a music genre or musical artist</p>
+
+                    <p class="modalp">Try searching either a music genre or musical artist</p>
+
                 </div>
                 <div class="modal-footer">
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Search Again</a>
                 </div>
+
             </div>
 
-            <div id="YouTubeNoInput" class="modal">
-                <div class="modal-content">
-                    <h4>Sorry! You didn't type anything in</h4>
-                    <p>Try searching either a music genre or musical artist</p>
-                </div>
-                <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Search Again</a>
-                </div>
-            </div>
-
-            <div class="tunes">
-                <!-- REMOVED P TAG BEZ SEEMS UNNECESSARY??? -->
-                <!-- <p>Ready for some tunes to kick the party off?</p> -->
-                <input type="text" id="searchMusic" placeholder="Music for your mood!">
-                <!-- <button type="submit" value="Search" id="searchMusicBtn">Find Playlist</button> -->
-                <!-- CHANGED BUTTON DESIGN, ADDED DARK SHADOW, AND ADDED ICON -->
-                <a class="waves-effect waves-light btn z-depth-5" id="searchMusicBtn"><i class="fas fa-music"></i>
-                    search</a>
-            </div>
         </div>
         <iframe id="player" width="853" height="480" src="" frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
@@ -103,10 +119,11 @@
         <div id="modalDrinkFail" class="modal">
             <div class="modal-content">
                 <h4>Sorry! We couldn't find that drink for you.</h4>
-                <p>We couldn't find the drink you searched for. Make sure your spelling is correct. I know... we're
-                    picky.</p>
-                <p>You can also get a random drink if you're feeling adventurous or jump straight to a music playlist
-                    while you decide what you want to sip on.</p>
+
+                <p class="modalp">We couldn't find the drink you searched for. Make sure your spelling is correct. I
+                    know... we're picky.</p>
+                <p class="modalp">You can also get a random drink if you're feeling adventurous or jump straight to a
+                    music playlist while you decide what you want to sip on.</p>
             </div>
             <div class="modal-footer">
                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">Search Again</a>
@@ -121,9 +138,10 @@
         <div id="drinkInputFail" class="modal">
             <div class="modal-content">
                 <h4>Please enter a drink</h4>
-                <p>Please enter a drink so we can find it for you. Hard to search for nothing...</p>
-                <p>If you're having a hard time deciding, try a random beverage. You might find a new favorite...</p>
-                <p>You can also get some tunes going while deciding on your libation.</p>
+                <p class="modalp">Please enter a drink so we can find it for you. Hard to search for nothing...</p>
+                <p class="modalp">If you're having a hard time deciding, try a random beverage. You might find a new
+                    favorite...</p>
+                <p class="modalp">You can also get some tunes going while deciding on your libation.</p>
             </div>
             <div class="modal-footer">
                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">Search Again</a>

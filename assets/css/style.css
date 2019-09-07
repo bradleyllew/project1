@@ -54,5 +54,26 @@ i.fa-headphones {
     font-size: 800%;
 }
 
+.modalp {
+    color: black;
+}
+
+#page-change {
+    position: fixed;
+    bottom: 10px;
+}
+
+#landImg {
+    height: 500px;
+    width: 500px;
+}
   
+#searchImg {
+    height: 100px;
+    width: 100px;
+    padding-top: 10px;
+}
   
+.ingredients-div {
+    margin-top: 27.253px;
+}
