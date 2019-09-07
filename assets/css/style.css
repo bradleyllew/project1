@@ -12,6 +12,8 @@ html {
     background-size: cover;
    }
 
+
+
 .container > div{
     display: flex;
     /* TO MAKE ALL RESPONSIVE */
