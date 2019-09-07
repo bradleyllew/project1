@@ -64,5 +64,15 @@ i.fa-headphones {
     position: fixed;
     bottom: 10px;
 }
+
+#landImg {
+    height: 500px;
+    width: 500px;
+}
   
+#searchImg {
+    height: 100px;
+    width: 100px;
+    padding-top: 10px;
+}
   
