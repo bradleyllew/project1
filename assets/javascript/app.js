@@ -319,6 +319,8 @@ $(document).ready(function () {
             getMeasuresIngreds();
 
             var drinkDiv = $("<div>").addClass('drink-div');
+            // var ingredientsDiv = $("<div>").addClass("ingredients-div");
+            // var directionsDiv = $("<div>").addClass("directions-div");
             var drinkImg = $("<img>");
             drinkImg.addClass('drink-pic').attr("src", drinkThumb);
             bevName = $("<h3>").text(drinkName);
@@ -327,8 +329,8 @@ $(document).ready(function () {
 
             drinkDiv.append(bevName);
             drinkDiv.append(drinkImg);
-            drinkDiv.append(ingredsP);
-            drinkDiv.append(directionsP);
+            $(".ingredients-div").append(ingredsP);
+            $(".directions-div").append(directionsP);
 
             // This line pushes everything to the DOM so it's visible to the end user. 
             $(".cocktails").append(drinkDiv);
