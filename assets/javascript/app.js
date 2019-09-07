@@ -3,7 +3,7 @@ $(document).ready(function () {
     // LANDING PAGE REDIRECT BUTTON 
     // ================================================================
     $("#page-change").on("click", function () {
-        location.href = "https://jeff-paul-greco.github.io/project1/search-page";
+        location.href = "https://jeff-paul-greco.github.io/project1/search-page"
     });
 
     // SETUP GLOBAL VARIABLES
