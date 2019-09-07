@@ -78,7 +78,9 @@ $(document).ready(function () {
             $(".modal").modal();
             // triggers the modal with id #modalDrinkFail
             $('#drinkInputFail').modal('open');
+            //hides the other modals
             $("#modalDrinkFail").hide();
+            $("#YouTubeNoInput").hide();
 
             // stops the below code from running & generating errors on the page
             return;
@@ -90,6 +92,8 @@ $(document).ready(function () {
 
         //empty the .cocktails div so we have only one drink showing at a time
         $(".cocktails").empty();
+        $(".ingredients-div").empty();
+        $(".directions-div").empty();
 
         cocktailQuery = encodeURIComponent($("#searchInput").val().trim()); //cleans user input - spaces --> %20 which are needed for this API's calls
         //building the query URL
@@ -113,6 +117,8 @@ $(document).ready(function () {
                 // triggers the modal with id #modalDrinkFail
                 $('#modalDrinkFail').modal('open');
                 $("#drinkInputFail").hide();
+                $("#YouTubeNoInput").hide();
+                
                 // stops the below code from running & generating errors on the page
                 return;
             }
@@ -159,17 +165,16 @@ $(document).ready(function () {
 
             var drinkDiv = $("<div>").addClass('drink-div');
             var drinkImg = $("<img>");
-            drinkImg.addClass('drink-pic').attr("src", drinkThumb);
+            drinkImg.addClass('drink-pic responsive-img').attr("src", drinkThumb);
             bevName = $("<h3>").text(drinkName);
             ingredsP = $("<p>").text("Ingredients: " + measuresIngredients.join(", "));
             directionsP = $("<p>").text("Directions: " + drinkInstr);
 
             drinkDiv.append(bevName);
             drinkDiv.append(drinkImg);
-            drinkDiv.append(ingredsP);
-            drinkDiv.append(directionsP);
-
-            // Push everything to the DOM so it's visible to the end user. 
+            // These lines pushe everything to the DOM so it's visible to the end user. 
+            $(".ingredients-div").append(ingredsP);
+            $(".directions-div").append(directionsP);
             $(".cocktails").append(drinkDiv);
         })
 
@@ -195,7 +200,7 @@ $(document).ready(function () {
             $("#modalDrinkFail").hide();
             $("#drinkInputFail").hide();
             $("#searchMusic").val("");
-            $("#YouTubeNoInput").modal('hide');
+            // $("#YouTubeNoInput").modal('hide');
 
         } else {
             // ajax call
@@ -285,29 +290,44 @@ $(document).ready(function () {
         }
     });
 
-    // Random Drink - button
     // FUNCTIONS to be called by Main Process section
     // ================================================================
 
     // function to prepend measurements to ingredients
     function getMeasuresIngreds() {
+        
+        //reset this array to empty so we don't keep adding to it
+        measuresIngredients = [];
+        
         for (var k = 0; k < drinkMeasrs.length; k++) {
             var measure = drinkMeasrs[k];
             var ingredient = drinkIngreds[k];
             console.log(measure + ingredient);
-            measuresIngredients.push(measure + ingredient);
+
+            if (measure !== undefined && ingredient !== undefined) {
+                measuresIngredients.push(measure + ingredient);
+            }
         };
     }
 
+    // function to get random drink and display it
     function getRandomDrink() {
         $.ajax({
             url: "https://www.thecocktaildb.com/api/json/v1/1/random.php",
             method: "GET"
             // this executes once the promise comes back
         }).then(function (cocktailDataReturn) {
+            // //reset these arrays to empty so we don't keep adding into them
+            drinkIngreds = [];
+            drinkMeasrs = [];
+            console.log("drinkIngreds: " + drinkIngreds);
+            console.log("drinkMeasrs: " + drinkMeasrs);
 
             //empty the .cocktails div so we have only one drink showing at a time
             $(".cocktails").empty();
+            //empty the .ingredients-div and directions-div so we have only one thing showing at a time
+            $(".ingredients-div").empty();
+            $(".directions-div").empty();
 
             // show the .cocktails div now that we have something to put in it
             $(".cocktails").show();
@@ -315,10 +335,6 @@ $(document).ready(function () {
             // set returned data to drinkData - easier to type/read
             var drinkData = cocktailDataReturn.drinks[0];
             console.log(drinkData);
-
-            // show the .cocktails div now that we have something to put in it
-            $(".cocktails").show();
-
 
             // each drink has 15 ingredient fields - whether used or not. This loop only pushes the actual ingredients into the drinkIngreds array
             for (var i = 1; i < 16; i++) {
@@ -354,20 +370,17 @@ $(document).ready(function () {
             getMeasuresIngreds();
 
             var drinkDiv = $("<div>").addClass('drink-div');
-            // var ingredientsDiv = $("<div>").addClass("ingredients-div");
-            // var directionsDiv = $("<div>").addClass("directions-div");
             var drinkImg = $("<img>");
-            drinkImg.addClass('drink-pic').attr("src", drinkThumb);
+            drinkImg.addClass('drink-pic responsive-img').attr("src", drinkThumb);
             bevName = $("<h3>").text(drinkName);
             ingredsP = $("<p>").text("Ingredients: " + measuresIngredients.join(", "));
             directionsP = $("<p>").text("Directions: " + drinkInstr);
 
             drinkDiv.append(bevName);
             drinkDiv.append(drinkImg);
+            // These lines push everything to the DOM so it's visible to the end user. 
             $(".ingredients-div").append(ingredsP);
             $(".directions-div").append(directionsP);
-
-            // This line pushes everything to the DOM so it's visible to the end user. 
             $(".cocktails").append(drinkDiv);
         })
 
