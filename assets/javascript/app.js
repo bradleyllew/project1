@@ -28,6 +28,7 @@ $(document).ready(function () {
     $(".tunes").hide();
     $("#player").hide();
     $("#back-button").hide();
+    $("#hide-show").hide();
     $("#modalDrinkFail").hide();
     $("#drinkInputFail").hide();
 
@@ -90,7 +91,7 @@ $(document).ready(function () {
             method: "GET"
             // this executes once the promise comes back
         }).then(function (cocktailDataReturn) {
-            
+
             //check for "null" return (meaning, the search failed)
             var drinkNullCheck = cocktailDataReturn.drinks;
             console.log(drinkNullCheck);
@@ -172,77 +173,96 @@ $(document).ready(function () {
 
         playlistChoices = [];
 
-        YouTubeQuery = "&q=" + encodeURIComponent($("#searchMusic").val().trim());
+        YouTubeQuery = "&q=" + ($("#searchMusic").val().trim());
         YouTubeQueryURL = YouTubeURL + YouTubeQuery;
         console.log(YouTubeQueryURL);
 
-        // ajax call
-        $.ajax({
-            url: YouTubeQueryURL,
-            method: "GET"
-        }).then(function (playlistDataReturn) {
+        if ($("#searchMusic").val() === null || $("#searchMusic").val() === "" || $("#searchMusic").val() === " ") {
 
-            console.log(playlistDataReturn);
-
-            $("#player").hide();
-            $(".playlists").show();
-            $(".playlists").empty();
-            $("#back-button").hide();
+            $(".modal").modal();
+            $("#YouTubeNoInput").modal('open');
             $("#searchMusic").val("");
 
-            var playlistData = playlistDataReturn.items;
-            console.log(playlistData);
+        } else {
+            // ajax call
+            $.ajax({
+                url: YouTubeQueryURL,
+                method: "GET"
+            }).then(function (playlistDataReturn) {
 
-            if (playlistData.length === 0) {
-                $(".modal").modal();
-                $("#YouTubeFail").modal('open');
-            } else {
+                console.log(playlistDataReturn);
 
-                // generate 5 playlists with an image and text link
-                for (m = 0; m < 5; m++) {
-                    playlistChoices.push(playlistData[m].snippet.title);
-                    playlistLinks.push("https://www.youtube.com/playlist?list=" + playlistData[m].id.playlistId);
-                    var embedLink = "https://www.youtube.com/embed/playlist?list=" + playlistData[m].id.playlistId;
-
-                    var playlistDiv = $("<div>").addClass('playlists-div');
-
-                    var playlistImg = $("<img>");
-                    playlistImg.addClass('playlist-pic').attr("src", playlistData[m].snippet.thumbnails.medium.url);
-
-                    var link = $("<a>");
-                    link.addClass("playlist-links");
-                    link.html("<h3>" + playlistChoices[m] + "</h3>");
-
-                    var lineBreak = $("<br>");
-
-                    // writing to DOM
-                    link.prepend(playlistImg);
-                    link.append(lineBreak);
-                    playlistDiv.append(link);
-                    playlistDiv.attr("data-id", embedLink);
-
-                    $(".playlists").append(playlistDiv);
-                };
-            };
-            // function that embeds selected video
-            $(".playlists-div").on("click", function () {
-
-                $(".playlists").hide();
-                $("#player").show();
-                $("#player").empty();
-                $("#player").attr("src", $(this).attr("data-id"));
-                $("#back-button").show();
-
-            });
-
-            // button to return from embed to search results
-            $("#back-button").on("click", function () {
-                $(".playlists").show();
-                $("#back-button").hide();
                 $("#player").hide();
-            });
-        });
+                $(".playlists").show();
+                $(".playlists").empty();
+                $("#back-button").hide();
+                $("#hide-show").hide();
+                $("#searchMusic").val("");
 
+                var playlistData = playlistDataReturn.items;
+                console.log(playlistData);
+
+
+                if (playlistData.length === 0) {
+
+                    $(".modal").modal();
+                    $("#YouTubeFail").modal('open');
+                    $("#searchMusic").val("");
+
+                } else {
+
+                    // generate 5 playlists with an image and text link
+                    for (m = 0; m < 5; m++) {
+                        playlistChoices.push(playlistData[m].snippet.title);
+                        playlistLinks.push("https://www.youtube.com/playlist?list=" + playlistData[m].id.playlistId);
+                        var embedLink = "https://www.youtube.com/embed/playlist?list=" + playlistData[m].id.playlistId;
+
+                        var playlistDiv = $("<div>").addClass('playlists-div');
+
+                        var playlistImg = $("<img>");
+                        playlistImg.addClass('playlist-pic').attr("src", playlistData[m].snippet.thumbnails.medium.url);
+
+                        var link = $("<a>");
+                        link.addClass("playlist-links");
+                        link.html("<h3>" + playlistChoices[m] + "</h3>");
+
+                        var lineBreak = $("<br>");
+
+                        // writing to DOM
+                        link.prepend(playlistImg);
+                        link.append(lineBreak);
+                        playlistDiv.append(link);
+                        playlistDiv.attr("data-id", embedLink);
+
+                        $(".playlists").append(playlistDiv);
+                    };
+                };
+                // function that embeds selected video
+                $(".playlists-div").on("click", function () {
+
+                    $(".playlists").hide();
+                    $("#player").show();
+                    $("#player").empty();
+                    $("#player").attr("src", $(this).attr("data-id"));
+                    $("#back-button").show();
+                    $("#hide-show").show();
+
+                });
+
+                // button to return from embed to search results
+                $("#back-button").on("click", function () {
+                    $(".playlists").show();
+                    $("#back-button").hide();
+                    $("#hide-show").hide();
+                    $("#player").hide();
+                });
+
+                // button that toggles YouTube embed visibility
+                $("#hide-show").on("click", function () {
+                    $("#player").toggle("fast");
+                });
+            });
+        }
     });
 
     // Random Drink - button
@@ -269,7 +289,7 @@ $(document).ready(function () {
             // show the .cocktails div now that we have something to put in it
             $(".cocktails").show();
 
-            
+
 
             // set returned data to drinkData - easier to type/read
             var drinkData = cocktailDataReturn.drinks[0];
