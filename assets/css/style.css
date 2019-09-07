@@ -57,5 +57,10 @@ i.fa-headphones {
 .modalp {
     color: black;
 }
+
+#page-change {
+    position: fixed;
+    bottom: 10px;
+}
   
   
