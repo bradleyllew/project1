@@ -278,7 +278,7 @@ $(document).ready(function () {
                 });
 
                 // button that toggles YouTube embed visibility
-                $("#hide-show").on("click", function () {
+                $("#hide-show").unbind().click(function () {
                     $("#player").toggle("fast");
                 });
             });
