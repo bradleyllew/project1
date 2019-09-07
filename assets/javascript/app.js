@@ -306,10 +306,11 @@ $(document).ready(function () {
             // this executes once the promise comes back
         }).then(function (cocktailDataReturn) {
 
+            //empty the .cocktails div so we have only one drink showing at a time
+            $(".cocktails").empty();
+
             // show the .cocktails div now that we have something to put in it
             $(".cocktails").show();
-
-
 
             // set returned data to drinkData - easier to type/read
             var drinkData = cocktailDataReturn.drinks[0];
