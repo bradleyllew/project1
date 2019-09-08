@@ -32,7 +32,7 @@ html {
     font-size: 35px;
 }
 
-h3 {
+h4, h3 {
     font-family: 'Shadows Into Light', cursive;
     color: white;
 }
@@ -76,9 +76,28 @@ i.fa-headphones {
 }
   
 .ingredients-div {
-    margin-top: 6rem;
+    margin-top: 4.5rem;
 }
 
 #hide-show #back-button {
     display: inline-block;
 }
+
+.ingredient-thumb {
+    display: inline-block;
+    /* margin: 5px; */
+    /* width: 50%; */
+}
+
+.ingredient-image {
+    margin: 3px;
+    /* width: auto;
+    height: auto; */
+}
+
+/* figure {
+    display: inline-block;
+    width: 25%;
+    margin: 0;
+
+} */

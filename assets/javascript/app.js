@@ -22,6 +22,10 @@ $(document).ready(function () {
     var drinkName = "";
     var measuresIngredients = [];
 
+    var ingredientPicURL = "https://www.thecocktaildb.com/images/ingredients/" + ingredientTerm + "-Medium.png";
+    var ingredientTerm = "";
+    var ingredient = "";
+
     var YouTubeKey = "&key=AIzaSyACSXoiBj6astRGCQf_03G39FP5pO_YmhY";
     var YouTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=playlist" + YouTubeKey;
     var YouTubeQuery = "";
@@ -166,16 +170,31 @@ $(document).ready(function () {
             var drinkDiv = $("<div>").addClass('drink-div');
             var drinkImg = $("<img>");
             drinkImg.addClass('drink-pic responsive-img').attr("src", drinkThumb);
-            bevName = $("<h3>").text(drinkName);
+            bevName = $("<h4>").text(drinkName);
             ingredsP = $("<p>").text("Ingredients: " + measuresIngredients.join(", "));
             directionsP = $("<p>").text("Directions: " + drinkInstr);
 
             drinkDiv.append(bevName);
             drinkDiv.append(drinkImg);
-            // These lines pushe everything to the DOM so it's visible to the end user. 
-            $(".ingredients-div").append(ingredsP);
+            // These lines push everything to the DOM so it's visible to the end user. 
+            // $(".ingredients-div").append(ingredsP);
+            getIngredientPics();
             $(".directions-div").append(directionsP);
             $(".cocktails").append(drinkDiv);
+
+            // var drinkDiv = $("<div>").addClass('drink-div');
+            // var drinkImg = $("<img>");
+            // drinkImg.addClass('drink-pic responsive-img').attr("src", drinkThumb);
+            // bevName = $("<h4>").text(drinkName);
+            // ingredsP = $("<p>").text("Ingredients: " + measuresIngredients.join(", "));
+            // directionsP = $("<p>").text("Directions: " + drinkInstr);
+
+            // drinkDiv.append(bevName);
+            // drinkDiv.append(drinkImg);
+            // // These lines pushe everything to the DOM so it's visible to the end user. 
+            // $(".ingredients-div").append(ingredsP);
+            // $(".directions-div").append(directionsP);
+            // $(".cocktails").append(drinkDiv);
         })
 
         // reset input field to blank
@@ -372,16 +391,33 @@ $(document).ready(function () {
             var drinkDiv = $("<div>").addClass('drink-div');
             var drinkImg = $("<img>");
             drinkImg.addClass('drink-pic responsive-img').attr("src", drinkThumb);
-            bevName = $("<h3>").text(drinkName);
+            bevName = $("<h4>").text(drinkName);
             ingredsP = $("<p>").text("Ingredients: " + measuresIngredients.join(", "));
             directionsP = $("<p>").text("Directions: " + drinkInstr);
 
             drinkDiv.append(bevName);
             drinkDiv.append(drinkImg);
             // These lines push everything to the DOM so it's visible to the end user. 
-            $(".ingredients-div").append(ingredsP);
+            // $(".ingredients-div").append(ingredsP);
+            getIngredientPics();
             $(".directions-div").append(directionsP);
             $(".cocktails").append(drinkDiv);
+
+
+
+            // var drinkDiv = $("<div>").addClass('drink-div');
+            // var drinkImg = $("<img>");
+            // drinkImg.addClass('drink-pic responsive-img').attr("src", drinkThumb);
+            // bevName = $("<h3>").text(drinkName);
+            // ingredsP = $("<p>").text("Ingredients: " + measuresIngredients.join(", "));
+            // directionsP = $("<p>").text("Directions: " + drinkInstr);
+
+            // drinkDiv.append(bevName);
+            // drinkDiv.append(drinkImg);
+            // // These lines push everything to the DOM so it's visible to the end user. 
+            // $(".ingredients-div").append(ingredsP);
+            // $(".directions-div").append(directionsP);
+            // $(".cocktails").append(drinkDiv);
         })
 
         // reset input field to blank
@@ -390,5 +426,37 @@ $(document).ready(function () {
         $(".tunes").show();
     };
 
+    //function to get ingredient images
+    function getIngredientPics() {
+        // ingredientPicURL = "https://www.thecocktaildb.com/images/ingredients/" + ingredientTerm + "-Medium.png";
+        // ingredientTerm = "";
+        for (var k = 0; k < drinkIngreds.length; k++) {
+            // var measure = drinkMeasrs[k];
+            ingredient = drinkIngreds[k];
+            measure = drinkMeasrs[k];
+
+
+            if (measure !== undefined && ingredient !== undefined) {
+                ingredsDivContainer = $("<div>").addClass("center-align ingredient-thumb col s6 m4 l3");
+                // ingredsDivContainer = $("<figure>").addClass("center-align ingredient-thumb col s6 m4");
+                ingredientTerm = ingredient;
+                ingredientPicURL = "https://www.thecocktaildb.com/images/ingredients/" + ingredientTerm + "-Medium.png";
+
+
+                console.log("ingredientTerm: " + ingredientTerm);
+                console.log("ingredientPicURL: " + ingredientPicURL);
+
+
+                ingredientImg = $("<img>").attr("src", ingredientPicURL).addClass("responsive-img ingredient-image");
+                ingredsFigcaption = $("<figcaption>").text(measure + " " + ingredient);
+                // ingredsFigcaption = $("<figcaption>").text(measuresIngredients.join(", "));
+
+                ingredsDivContainer.append(ingredientImg);
+                ingredsDivContainer.append(ingredsFigcaption);
+                $(".ingredients-div").append(ingredsDivContainer);
+                // measuresIngredients.push(measure + ingredient);
+            };
+        }
+    }
 
 }) // le fin
