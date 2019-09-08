@@ -39,7 +39,8 @@
                     <!-- CHANGED BUTTON DESIGN, ADDED DARK SHADOW, AND ADDED ICON -->
                     <a class="waves-effect waves-light btn z-depth-5" id="searchBtn"><i class="fas fa-cocktail"></i>
                         search</a>
-                    <a class="waves-effect waves-light btn z-depth-5" id="randomBtn"><i class="far fa-question-circle"></i></i>
+                    <a class="waves-effect waves-light btn z-depth-5" id="randomBtn"><i
+                            class="far fa-question-circle"></i></i>
                         random</a>
 
                 </div>
@@ -54,6 +55,11 @@
                     <!-- CHANGED BUTTON DESIGN, ADDED DARK SHADOW, AND ADDED ICON -->
                     <a class="waves-effect waves-light btn z-depth-5" id="searchMusicBtn"><i class="fas fa-music"></i>
                         search</a>
+                    <!-- <a class="waves-effect waves-light btn z-depth-5" id="back-button"><i class="fas fa-undo"></i>
+                        back to results</a>
+                    <a class="waves-effect waves-light btn z-depth-5" id="hide-show"><i
+                            class="fas fa-chevron-down"></i>
+                        hide/show</a> -->
                 </div>
 
             </div>
@@ -63,8 +69,8 @@
         <!-- div for drink result -->
         <div class="row cocktail-row">
             <div class="col s12 m4">
-                    <div class="cocktails">
-                    </div>
+                <div class="cocktails">
+                </div>
             </div>
             <div class="col s12 m8">
                 <div class="ingredients-div">
@@ -76,7 +82,7 @@
         <div class="row directions-row">
             <div class="col s12">
                 <div class="directions-div">
-                    
+
                 </div>
             </div>
 
@@ -91,9 +97,9 @@
 
             <div id="YouTubeFail" class="modal">
                 <div class="modal-content">
-                    <h4>Sorry! That search didn't turn anything up</h4>
+                    <h4>Sorry! That search didn't turn anything up, wth?</h4>
 
-                    <p class="modalp">Try searching either a music genre or musical artist</p>
+                    <p class="modalp">C'mon...try searching either a music genre or musical artist</p>
 
                 </div>
                 <div class="modal-footer">
@@ -110,18 +116,18 @@
         <!-- <button type="submit" value="submit" id="back-button">Back to Results</button> -->
         <a class="waves-effect waves-light btn z-depth-5" id="back-button"><i class="fas fa-undo"></i>
             back to results</a>
-        <a class="waves-effect waves-light btn z-depth-5" id="hide-show"><i class="fas fa-chevron-down"></i></i>
+        <a class="waves-effect waves-light btn z-depth-5" id="hide-show"><i class="fas fa-chevron-down"></i>
             hide/show</a>
 
-            <div id="YouTubeNoInput" class="modal">
-                <div class="modal-content">
-                    <h4>Sorry! You didn't type anything in</h4>
-                    <p class="modalp">Try searching either a music genre or musical artist</p>
-                </div>
-                <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Search Again</a>
-                </div>
+        <div id="YouTubeNoInput" class="modal">
+            <div class="modal-content">
+                <h4>Sorry! You didn't type anything in...</h4>
+                <p class="modalp">Try searching either a music genre or musical artist, duh!</p>
             </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Search Again</a>
+            </div>
+        </div>
 
 
         <!-- modal for "null" from coctailsDB - AKA coctailsDB search was unsuccessful -->
