@@ -78,3 +78,7 @@ i.fa-headphones {
 .ingredients-div {
     margin-top: 6rem;
 }
+
+#hide-show #back-button {
+    display: inline-block;
+}
