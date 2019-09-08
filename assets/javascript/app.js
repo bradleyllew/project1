@@ -71,7 +71,6 @@ $(document).ready(function () {
         $(".tunes").show();
     });
 
-
     // The cocktailDB API call - user input
     $("#searchBtn").on("click", function () {
 
@@ -240,7 +239,6 @@ $(document).ready(function () {
                 var playlistData = playlistDataReturn.items;
                 console.log(playlistData);
 
-
                 if (playlistData.length === 0) {
 
                     $(".modal").modal();
@@ -251,8 +249,6 @@ $(document).ready(function () {
                     $("#searchMusic").val("");
                     $("#YouTubeNoInput").hide();
                     
-                
-
                 } else {
 
                     // generate 5 playlists with an image and text link
@@ -403,8 +399,8 @@ $(document).ready(function () {
             $(".directions-div").append(directionsP);
             $(".cocktails").append(drinkDiv);
 
-
-
+            //The below commented out section is the original that the above replaced. If things get fucked, uncomment below and delete above to unfuck things.
+            // ==========================================================================
             // var drinkDiv = $("<div>").addClass('drink-div');
             // var drinkImg = $("<img>");
             // drinkImg.addClass('drink-pic responsive-img').attr("src", drinkThumb);
@@ -435,17 +431,14 @@ $(document).ready(function () {
             ingredient = drinkIngreds[k];
             measure = drinkMeasrs[k];
 
-
             if (measure !== undefined && ingredient !== undefined) {
                 ingredsDivContainer = $("<div>").addClass("center-align ingredient-thumb col s6 m4 l3");
                 // ingredsDivContainer = $("<figure>").addClass("center-align ingredient-thumb col s6 m4");
                 ingredientTerm = ingredient;
                 ingredientPicURL = "https://www.thecocktaildb.com/images/ingredients/" + ingredientTerm + "-Medium.png";
 
-
                 console.log("ingredientTerm: " + ingredientTerm);
                 console.log("ingredientPicURL: " + ingredientPicURL);
-
 
                 ingredientImg = $("<img>").attr("src", ingredientPicURL).addClass("responsive-img ingredient-image");
                 ingredsFigcaption = $("<figcaption>").text(measure + " " + ingredient);
