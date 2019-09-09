@@ -252,12 +252,12 @@ $(document).ready(function () {
                 } else {
 
                     // generate 5 playlists with an image and text link
-                    for (m = 0; m < 5; m++) {
+                    for (m = 0; m < 4; m++) {
                         playlistChoices.push(playlistData[m].snippet.title);
                         playlistLinks.push("https://www.youtube.com/playlist?list=" + playlistData[m].id.playlistId);
                         var embedLink = "https://www.youtube.com/embed/playlist?list=" + playlistData[m].id.playlistId;
 
-                        var playlistDiv = $("<div>").addClass('playlists-div');
+                        var playlistDiv = $("<div>").addClass('playlist-div');
 
                         var playlistImg = $("<img>");
                         playlistImg.addClass('playlist-pic').attr("src", playlistData[m].snippet.thumbnails.medium.url);
@@ -266,11 +266,11 @@ $(document).ready(function () {
                         link.addClass("playlist-links");
                         link.html("<h3>" + playlistChoices[m] + "</h3>");
 
-                        var lineBreak = $("<br>");
+                        // var lineBreak = $("<br>");
 
                         // writing to DOM
                         link.prepend(playlistImg);
-                        link.append(lineBreak);
+                        // link.append(lineBreak);
                         playlistDiv.append(link);
                         playlistDiv.attr("data-id", embedLink);
 
@@ -278,7 +278,7 @@ $(document).ready(function () {
                     };
                 };
                 // function that embeds selected video
-                $(".playlists-div").on("click", function () {
+                $(".playlist-div").on("click", function () {
 
                     $(".playlists").hide();
                     $("#player").show();

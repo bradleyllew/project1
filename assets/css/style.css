@@ -109,3 +109,17 @@ i.fa-headphones {
     height: 100%;
     border: 0;
 }
+
+.playlists {
+    width: fit-content;
+    text-align: center;
+}
+
+.playlist-div {
+    display: inline-flex;
+    width: 350px;
+    margin-right: 50px;
+    margin-top: 15px;
+}
+
+
