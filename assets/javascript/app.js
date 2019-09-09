@@ -3,7 +3,7 @@ $(document).ready(function () {
     // LANDING PAGE REDIRECT BUTTON 
     // ================================================================
     $("#page-change").on("click", function () {
-        location.href = "https://jeff-paul-greco.github.io/project1/search-page";
+        location.href = "https://jeff-paul-greco.github.io/project1/search-page"
     });
 
     // SETUP GLOBAL VARIABLES
@@ -31,10 +31,11 @@ $(document).ready(function () {
     var YouTubeQuery = "";
     var YouTubeQueryURL = "";
     var playlistChoices = [];
-    var playlistLinks = [];
 
     //hide the .cocktails div until there is something to display & the tunes section until a drink is picked
     $(".cocktails").hide();
+    $(".ingredients-div").hide();
+    $(".directions-div").hide();
     $(".tunes").hide();
     $("#player").hide();
     $("#back-button").hide();
@@ -132,6 +133,8 @@ $(document).ready(function () {
 
             // show the .cocktails div now that we have something to put in it
             $(".cocktails").show();
+            $(".ingredients-div").show();
+            $(".directions-div").show();
 
             // each drink has 15 ingredient fields - whether used or not. This loop only pushes the actual ingredients into the drinkIngreds array
             for (var i = 1; i < 16; i++) {
@@ -218,7 +221,6 @@ $(document).ready(function () {
             $("#modalDrinkFail").hide();
             $("#drinkInputFail").hide();
             $("#searchMusic").val("");
-            // $("#YouTubeNoInput").modal('hide');
 
         } else {
             // ajax call
@@ -252,25 +254,21 @@ $(document).ready(function () {
                 } else {
 
                     // generate 5 playlists with an image and text link
-                    for (m = 0; m < 5; m++) {
+                    for (m = 0; m < 4; m++) {
                         playlistChoices.push(playlistData[m].snippet.title);
-                        playlistLinks.push("https://www.youtube.com/playlist?list=" + playlistData[m].id.playlistId);
-                        var embedLink = "https://www.youtube.com/embed/playlist?list=" + playlistData[m].id.playlistId;
+                        var embedLink = "https://www.youtube.com/embed/playlist?list=" + playlistData[m].id.playlistId + "&playsinline=1";
 
-                        var playlistDiv = $("<div>").addClass('playlists-div');
-
+                        var playlistDiv = $("<div>").addClass('playlist-div');
+                        
+                        //assembling playlist entries in memory
                         var playlistImg = $("<img>");
                         playlistImg.addClass('playlist-pic').attr("src", playlistData[m].snippet.thumbnails.medium.url);
-
                         var link = $("<a>");
                         link.addClass("playlist-links");
                         link.html("<h3>" + playlistChoices[m] + "</h3>");
 
-                        var lineBreak = $("<br>");
-
                         // writing to DOM
                         link.prepend(playlistImg);
-                        link.append(lineBreak);
                         playlistDiv.append(link);
                         playlistDiv.attr("data-id", embedLink);
 
@@ -278,7 +276,7 @@ $(document).ready(function () {
                     };
                 };
                 // function that embeds selected video
-                $(".playlists-div").on("click", function () {
+                $(".playlist-div").on("click", function () {
 
                     $(".playlists").hide();
                     $("#player").show();
