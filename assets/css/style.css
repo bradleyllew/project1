@@ -85,7 +85,8 @@ i.fa-headphones {
 
 .ingredient-thumb {
     display: inline-block;
-    /* margin: 5px; */
+    margin-bottom: .5rem;
+    margin-top: .5rem;
     /* width: 50%; */
 }
 
@@ -101,3 +102,8 @@ i.fa-headphones {
     margin: 0;
 
 } */
+
+figcaption {
+    overflow: visible;
+    flex-wrap: nowrap;
+}
