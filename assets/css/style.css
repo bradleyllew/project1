@@ -20,10 +20,6 @@ html {
     flex-wrap: wrap;
 }
 
-.drink-pic {
-    /* height: 30%;
-    width: 30%; */
-}
 
 ::placeholder {
     font-family: 'Shadows Into Light', cursive;
@@ -96,14 +92,7 @@ i.fa-headphones {
     height: auto; */
 }
 
-/* figure {
-    display: inline-block;
-    width: 25%;
-    margin: 0;
-
-} */
-
-figcaption {
-    overflow: visible;
-    flex-wrap: nowrap;
+.mHeader {
+    color:black;
 }
+
