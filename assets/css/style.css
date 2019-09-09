@@ -22,13 +22,13 @@ html {
     flex-wrap: wrap;
 }
 
-.container {
+/* .container {
     background-color: rgba(0, 0, 0, .5);
     min-height: 720px;
-}
+} */
 
 
-.ingredients
+/* .ingredients */
 
 ::placeholder {
     font-family: 'Shadows Into Light', cursive;
