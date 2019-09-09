@@ -16,6 +16,9 @@ body {
     /* TO PUT OBJS ON NEXT ROW */
     flex-wrap: wrap;
  }
+ #background-container {
+    background-color: rgb(0, 0, 0, .4);
+ }
  ::placeholder {
     font-family: 'Shadows Into Light', cursive;
     color: white;
