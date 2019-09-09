@@ -3,7 +3,7 @@ $(document).ready(function () {
     // LANDING PAGE REDIRECT BUTTON 
     // ================================================================
     $("#page-change").on("click", function () {
-        location.href = "https://jeff-paul-greco.github.io/project1/search-page";
+        location.href = "https://jeff-paul-greco.github.io/project1/search-page"
     });
 
     // SETUP GLOBAL VARIABLES
@@ -35,6 +35,8 @@ $(document).ready(function () {
 
     //hide the .cocktails div until there is something to display & the tunes section until a drink is picked
     $(".cocktails").hide();
+    $(".ingredients-div").hide();
+    $(".directions-div").hide();
     $(".tunes").hide();
     $("#player").hide();
     $("#back-button").hide();
@@ -132,6 +134,8 @@ $(document).ready(function () {
 
             // show the .cocktails div now that we have something to put in it
             $(".cocktails").show();
+            $(".ingredients-div").show();
+            $(".directions-div").show();
 
             // each drink has 15 ingredient fields - whether used or not. This loop only pushes the actual ingredients into the drinkIngreds array
             for (var i = 1; i < 16; i++) {
