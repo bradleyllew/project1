@@ -1,111 +1,82 @@
 
-
 body {
     font-family: 'Shadows Into Light', cursive, white;
-}
-
-html {
+ }
+ html {
     background: url(../images/confetti.jpeg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
    }
-
-
-
-.container > div{
+ .container > div{
     display: flex;
     /* TO MAKE ALL RESPONSIVE */
     flex: 1;
     /* TO PUT OBJS ON NEXT ROW */
     flex-wrap: wrap;
-}
-
-.container {
-    background-color: rgba(0, 0, 0, .5);
-    min-height: 720px;
-}
-
-
-.ingredients
-
-::placeholder {
+ }
+ ::placeholder {
     font-family: 'Shadows Into Light', cursive;
     color: white;
     font-weight: bold;
     font-size: 35px;
-}
-
-h4, h3 {
+ }
+ h4, h3 {
     font-family: 'Shadows Into Light', cursive;
     color: white;
-}
-
-p {
+ }
+ p {
     font-family: 'Shadows Into Light', cursive;
     color: white;
     font-weight: bold;
     /* font-size: 25px; */
     font-size: 1.5rem;
-}
-
-#searchInput, #searchMusic {
+ }
+ #searchInput, #searchMusic {
     font-family: 'Shadows Into Light', cursive;
     color: white;
     font-size: 20px;
-}
-
-i.fa-headphones {
+ }
+ i.fa-headphones {
     font-size: 800%;
-}
-
-.modalp {
+ }
+ .modalp {
     color: black;
-}
-
-#page-change {
+ }
+ #page-change {
     position: fixed;
     bottom: 10px;
-}
-
-#landImg {
+ }
+ #landImg {
     height: 500px;
     width: 500px;
-}
-  
-#searchImg {
+ }
+ #searchImg {
     height: 100px;
     width: 100px;
     padding-top: 10px;
-}
-  
-.ingredients-div {
+ }
+ .ingredients-div {
     margin-top: 4.5rem;
-}
-
-
-#hide-show #back-button {
+ }
+ #hide-show #back-button {
     display: inline-block;
-}
-
-.ingredient-thumb {
+ }
+ .ingredient-thumb {
     display: inline-block;
     /* margin: 5px; */
     /* width: 50%; */
-}
-
-.ingredient-image {
+ }
+ .ingredient-image {
     margin: 3px;
     /* width: auto;
     height: auto; */
-}
-
-
-.mHeader {
+ }
+ .mHeader {
     color:black;
-}
-
+ }
+ 
 .resp-container {
     position: relative;
     overflow: hidden;
