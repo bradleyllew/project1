@@ -22,6 +22,11 @@ html {
     flex-wrap: wrap;
 }
 
+.container {
+    background-color: rgba(0, 0, 0, .5);
+    min-height: 720px;
+}
+
 
 .ingredients
 
@@ -79,10 +84,6 @@ i.fa-headphones {
     margin-top: 4.5rem;
 }
 
-.ingredients-background{
-    background-color: rgb(128,128,128, .7);
-    padding: 10px;
-}
 
 #hide-show #back-button {
     display: inline-block;
@@ -100,10 +101,6 @@ i.fa-headphones {
     height: auto; */
 }
 
-.directions-div {
-    background-color: rgb(128,128,128, .7);
-    padding: 10px;
-}
 
 .mHeader {
     color:black;
