@@ -75,7 +75,8 @@ body {
  }
  .ingredient-thumb {
     display: inline-block;
-    /* margin: 5px; */
+    margin-bottom: .5rem;
+    margin-top: .5rem;
     /* width: 50%; */
  }
  .ingredient-image {
