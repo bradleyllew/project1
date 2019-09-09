@@ -120,7 +120,7 @@ $(document).ready(function () {
                 $('#modalDrinkFail').modal('open');
                 $("#drinkInputFail").hide();
                 $("#YouTubeNoInput").hide();
-                
+
                 // stops the below code from running & generating errors on the page
                 return;
             }
@@ -241,12 +241,12 @@ $(document).ready(function () {
 
                     $(".modal").modal();
                     $("#YouTubeFail").modal('open');
-                    
+
                     $("#modalDrinkFail").hide();
                     $("#drinkInputFail").hide();
                     $("#searchMusic").val("");
                     $("#YouTubeNoInput").hide();
-                    
+
                 } else {
 
                     // generate 5 playlists with an image and text link
@@ -255,7 +255,7 @@ $(document).ready(function () {
                         var embedLink = "https://www.youtube.com/embed/playlist?list=" + playlistData[m].id.playlistId + "&playsinline=1";
 
                         var playlistDiv = $("<div>").addClass('playlist-div');
-                        
+
                         //assembling playlist entries in memory
                         var playlistImg = $("<img>");
                         playlistImg.addClass('playlist-pic').attr("src", playlistData[m].snippet.thumbnails.medium.url);
@@ -304,10 +304,10 @@ $(document).ready(function () {
 
     // function to prepend measurements to ingredients
     function getMeasuresIngreds() {
-        
+
         //reset this array to empty so we don't keep adding to it
         measuresIngredients = [];
-        
+
         for (var k = 0; k < drinkMeasrs.length; k++) {
             var measure = drinkMeasrs[k];
             var ingredient = drinkIngreds[k];
