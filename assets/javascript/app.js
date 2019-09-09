@@ -255,7 +255,7 @@ $(document).ready(function () {
                     for (m = 0; m < 4; m++) {
                         playlistChoices.push(playlistData[m].snippet.title);
                         playlistLinks.push("https://www.youtube.com/playlist?list=" + playlistData[m].id.playlistId);
-                        var embedLink = "https://www.youtube.com/embed/playlist?list=" + playlistData[m].id.playlistId;
+                        var embedLink = "https://www.youtube.com/embed/playlist?list=" + playlistData[m].id.playlistId + "&playsinline=1";
 
                         var playlistDiv = $("<div>").addClass('playlist-div');
 
