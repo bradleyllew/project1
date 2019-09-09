@@ -79,6 +79,11 @@ i.fa-headphones {
     margin-top: 4.5rem;
 }
 
+.ingredients-background{
+    background-color: rgb(128,128,128, .7);
+    padding: 10px;
+}
+
 #hide-show #back-button {
     display: inline-block;
 }
@@ -93,6 +98,11 @@ i.fa-headphones {
     margin: 3px;
     /* width: auto;
     height: auto; */
+}
+
+.directions-div {
+    background-color: rgb(128,128,128, .7);
+    padding: 10px;
 }
 
 .mHeader {
