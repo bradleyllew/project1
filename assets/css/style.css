@@ -22,10 +22,6 @@ html {
     flex-wrap: wrap;
 }
 
-.drink-pic {
-    height: 30%;
-    width: 30%;
-}
 
 .ingredients
 
@@ -36,7 +32,7 @@ html {
     font-size: 35px;
 }
 
-h3 {
+h4, h3 {
     font-family: 'Shadows Into Light', cursive;
     color: white;
 }
@@ -45,7 +41,8 @@ p {
     font-family: 'Shadows Into Light', cursive;
     color: white;
     font-weight: bold;
-    font-size: 25px;
+    /* font-size: 25px; */
+    font-size: 1.5rem;
 }
 
 #searchInput, #searchMusic {
@@ -79,5 +76,26 @@ i.fa-headphones {
 }
   
 .ingredients-div {
-    margin-top: 27.253px;
+    margin-top: 4.5rem;
 }
+
+#hide-show #back-button {
+    display: inline-block;
+}
+
+.ingredient-thumb {
+    display: inline-block;
+    /* margin: 5px; */
+    /* width: 50%; */
+}
+
+.ingredient-image {
+    margin: 3px;
+    /* width: auto;
+    height: auto; */
+}
+
+.mHeader {
+    color:black;
+}
+

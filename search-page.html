@@ -32,20 +32,21 @@
         <br>
 
         <div class="row button-row">
-            <div class="col s6">
+            <div class="col s12 m6">
                 <div class="search">
                     <input type="text" id="searchInput" placeholder="Pick your poison!">
                     <!-- <button type="submit" value="Search" id="searchBtn">Search</button> -->
                     <!-- CHANGED BUTTON DESIGN, ADDED DARK SHADOW, AND ADDED ICON -->
                     <a class="waves-effect waves-light btn z-depth-5" id="searchBtn"><i class="fas fa-cocktail"></i>
                         search</a>
-                    <a class="waves-effect waves-light btn z-depth-5" id="randomBtn"><i class="far fa-question-circle"></i></i>
+                    <a class="waves-effect waves-light btn z-depth-5" id="randomBtn"><i
+                            class="far fa-question-circle"></i></i>
                         random</a>
 
                 </div>
 
             </div>
-            <div class="col s6">
+            <div class="col s12 m6">
                 <div class="tunes">
                     <!-- REMOVED P TAG BEZ SEEMS UNNECESSARY??? -->
                     <!-- <p>Ready for some tunes to kick the party off?</p> -->
@@ -54,6 +55,11 @@
                     <!-- CHANGED BUTTON DESIGN, ADDED DARK SHADOW, AND ADDED ICON -->
                     <a class="waves-effect waves-light btn z-depth-5" id="searchMusicBtn"><i class="fas fa-music"></i>
                         search</a>
+                    <!-- <a class="waves-effect waves-light btn z-depth-5" id="back-button"><i class="fas fa-undo"></i>
+                        back to results</a>
+                    <a class="waves-effect waves-light btn z-depth-5" id="hide-show"><i
+                            class="fas fa-chevron-down"></i>
+                        hide/show</a> -->
                 </div>
 
             </div>
@@ -62,11 +68,11 @@
 
         <!-- div for drink result -->
         <div class="row cocktail-row">
-            <div class="col s6">
-                    <div class="cocktails">
-                    </div>
+            <div class="col s12 m4">
+                <div class="cocktails">
+                </div>
             </div>
-            <div class="col s6">
+            <div class="col s12 m8">
                 <div class="ingredients-div">
 
                 </div>
@@ -76,7 +82,7 @@
         <div class="row directions-row">
             <div class="col s12">
                 <div class="directions-div">
-                    
+
                 </div>
             </div>
 
@@ -91,9 +97,9 @@
 
             <div id="YouTubeFail" class="modal">
                 <div class="modal-content">
-                    <h4>Sorry! That search didn't turn anything up</h4>
+                    <h4 class="mHeader">Sorry! That search didn't turn anything up, wth?</h4>
 
-                    <p class="modalp">Try searching either a music genre or musical artist</p>
+                    <p class="modalp">C'mon...try searching either a music genre or musical artist</p>
 
                 </div>
                 <div class="modal-footer">
@@ -103,32 +109,32 @@
             </div>
 
         </div>
-        <iframe id="player" width="853" height="480" src="" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-        </iframe>
 
         <!-- <button type="submit" value="submit" id="back-button">Back to Results</button> -->
         <a class="waves-effect waves-light btn z-depth-5" id="back-button"><i class="fas fa-undo"></i>
             back to results</a>
-        <a class="waves-effect waves-light btn z-depth-5" id="hide-show"><i class="fas fa-chevron-down"></i></i>
+        <a class="waves-effect waves-light btn z-depth-5" id="hide-show"><i class="fas fa-chevron-down"></i>
             hide/show</a>
+        <iframe id="player" width="80%" height="auto" src="" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
 
-            <div id="YouTubeNoInput" class="modal">
-                <div class="modal-content">
-                    <h4>Sorry! You didn't type anything in</h4>
-                    <p>Try searching either a music genre or musical artist</p>
-                </div>
-                <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Search Again</a>
-                </div>
+        <div id="YouTubeNoInput" class="modal">
+            <div class="modal-content">
+                <h4 class="mHeader">Sorry! You didn't type anything in...</h4>
+                <p class="modalp">Try searching either a music genre or musical artist, duh!</p>
             </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Search Again</a>
+            </div>
+        </div>
 
 
         <!-- modal for "null" from coctailsDB - AKA coctailsDB search was unsuccessful -->
         <!-- Modal Structure -->
         <div id="modalDrinkFail" class="modal">
             <div class="modal-content">
-                <h4>Sorry! We couldn't find that drink for you.</h4>
+                <h4 class="mHeader">Sorry! We couldn't find that drink for you.</h4>
 
                 <p class="modalp">We couldn't find the drink you searched for. Make sure your spelling is correct. I
                     know... we're picky.</p>
@@ -147,7 +153,7 @@
         <!-- Modal for failing to enter anything into the search field -->
         <div id="drinkInputFail" class="modal">
             <div class="modal-content">
-                <h4>Please enter a drink</h4>
+                <h4 class="mHeader">Please enter a drink</h4>
                 <p class="modalp">Please enter a drink so we can find it for you. Hard to search for nothing...</p>
                 <p class="modalp">If you're having a hard time deciding, try a random beverage. You might find a new
                     favorite...</p>
