@@ -48,9 +48,19 @@ body {
     position: fixed;
     bottom: 10px;
  }
+ .container-flex {
+    text-align: center;
+ }
  #landImg {
     height: 500px;
     width: 500px;
+    display: inline-block;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
  }
  #searchImg {
     height: 100px;
@@ -76,7 +86,7 @@ body {
  .mHeader {
     color:black;
  }
- 
+
 .resp-container {
     position: relative;
     overflow: hidden;
