@@ -2,9 +2,14 @@ $(document).ready(function () {
 
     // LANDING PAGE REDIRECT BUTTON 
     // ================================================================
+    const landLogo =  document.querySelector('#landImg')
+    landLogo.classList.add('animated', 'zoomIn')
+
+    
     $("#page-change").on("click", function () {
         location.href = "https://jeff-paul-greco.github.io/project1/search-page";
     });
+
 
     // SETUP GLOBAL VARIABLES
     // ================================================================

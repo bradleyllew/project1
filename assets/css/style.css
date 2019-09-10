@@ -60,11 +60,16 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
  }
- #searchImg {
-    height: 100px;
-    width: 100px;
-    padding-top: 10px;
+ /* #searchImg:hover {
+   animation-iteration-count: infinite;
+   height: 100px;
+   width: 100px;
+   padding-top: 10px;
+   animation: shake 0.5s;
  }
+ @keyframes shake {
+   0% { transform: translate(1px, 1px) rotate(0deg); }
+ } */
  .ingredients-div {
     margin-top: 4.5rem;
  }
