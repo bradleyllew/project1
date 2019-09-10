@@ -1,3 +1,4 @@
+    
 $(document).ready(function () {
 
     // LANDING PAGE REDIRECT BUTTON 
@@ -214,6 +215,7 @@ $(document).ready(function () {
         YouTubeQuery = "&q=" + ($("#searchMusic").val().trim());
         YouTubeQueryURL = YouTubeURL + YouTubeQuery;
         console.log(YouTubeQueryURL);
+        $(".resp-container").css("padding-top", "0%");
 
         if ($("#searchMusic").val() === null || $("#searchMusic").val() === "" || $("#searchMusic").val() === " ") {
 
@@ -279,6 +281,7 @@ $(document).ready(function () {
                 // function that embeds selected video
                 $(".playlist-div").on("click", function () {
 
+                    $(".resp-container").css("padding-top", "56.25%")
                     $(".playlists").hide();
                     $("#player").show();
                     $("#player").empty();
@@ -290,6 +293,7 @@ $(document).ready(function () {
 
                 // button to return from embed to search results
                 $("#back-button").on("click", function () {
+                    $(".resp-container").css("padding-top", "0%")
                     $(".playlists").show();
                     $("#back-button").hide();
                     $("#hide-show").hide();
