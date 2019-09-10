@@ -18,6 +18,7 @@ body {
  }
  #background-container {
     background-color: rgb(0, 0, 0, .4);
+    min-height: 100vh;
  }
  ::placeholder {
     font-family: 'Shadows Into Light', cursive;
@@ -89,7 +90,7 @@ body {
 .resp-container {
     position: relative;
     overflow: hidden;
-    padding-top: 56.25%;
+    /* padding-top: 56.25%; */
 }
 
 #player {
@@ -116,5 +117,4 @@ body {
 figcaption {
     color: white;
 }
-
 
