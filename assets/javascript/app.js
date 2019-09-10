@@ -275,6 +275,7 @@ $(document).ready(function () {
                 // function that embeds selected video
                 $(".playlist-div").on("click", function () {
 
+                    $(".resp-container").css("padding-top", "56.25%")
                     $(".playlists").hide();
                     $("#player").show();
                     $("#player").empty();
@@ -286,6 +287,7 @@ $(document).ready(function () {
 
                 // button to return from embed to search results
                 $("#back-button").on("click", function () {
+                    $(".resp-container").css("padding-top", "0%")
                     $(".playlists").show();
                     $("#back-button").hide();
                     $("#hide-show").hide();
