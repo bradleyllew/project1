@@ -4,7 +4,7 @@ $(document).ready(function () {
     // LANDING PAGE REDIRECT BUTTON 
     // ================================================================
     const landLogo =  document.querySelector('#landImg')
-    landLogo.classList.add('animated', 'zoomIn')
+    landLogo.classList.add('animated', 'zoomIn');
 
     
     $("#page-change").on("click", function () {
