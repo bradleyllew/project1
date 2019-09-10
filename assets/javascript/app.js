@@ -210,6 +210,7 @@ $(document).ready(function () {
         YouTubeQuery = "&q=" + ($("#searchMusic").val().trim());
         YouTubeQueryURL = YouTubeURL + YouTubeQuery;
         console.log(YouTubeQueryURL);
+        $(".resp-container").css("padding-top", "0%");
 
         if ($("#searchMusic").val() === null || $("#searchMusic").val() === "" || $("#searchMusic").val() === " ") {
 
