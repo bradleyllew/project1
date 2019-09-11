@@ -16,10 +16,8 @@ $(document).ready(function () {
 
     var drinkIngreds = [];
     var drinkMeasrs = [];
-    // var drinkObject = {};
     var drinkInstr = "";
     var drinkThumb = "";
-    // var drinkIngrThumbs = "";
     var drinkName = "";
     var measuresIngredients = [];
 
@@ -101,8 +99,8 @@ $(document).ready(function () {
         cocktailQuery = encodeURIComponent($("#searchInput").val().trim()); //cleans user input - spaces --> %20 which are needed for this API's calls
         //building the query URL
         cocktailQueryURL = cocktailURLBase + cocktailQuery;
-        console.log("cocktailQuery input: " + cocktailQuery);
-        console.log(cocktailQueryURL);
+        // console.log("cocktailQuery input: " + cocktailQuery);
+        // console.log(cocktailQueryURL);
         //the actual API call
         $.ajax({
             url: cocktailQueryURL,
@@ -112,7 +110,7 @@ $(document).ready(function () {
 
             //check for "null" return (meaning, the search failed)
             var drinkNullCheck = cocktailDataReturn.drinks;
-            console.log(drinkNullCheck);
+            // console.log(drinkNullCheck);
             if (drinkNullCheck === null) {
                 // alert("we didn't find that. Try again");
                 //initializes modals
@@ -128,7 +126,7 @@ $(document).ready(function () {
 
             // set returned data to drinkData - easier to type/read
             var drinkData = cocktailDataReturn.drinks[0];
-            console.log(drinkData);
+            // console.log(drinkData);
 
             // show the .cocktails div now that we have something to put in it
             $(".cocktails").show();
@@ -141,26 +139,26 @@ $(document).ready(function () {
                     drinkIngreds.push(ingred);
                 }
             }
-            console.log(drinkIngreds);
+                    // console.log(drinkIngreds);
 
             // same thing as above but for the ingredient measurements
             for (var j = 1; j < 16; j++) {
                 measr = eval("drinkData.strMeasure" + j);
-                console.log(measr);
+                // console.log(measr);
                 if (measr != "" && measr != " " && measr !== null) {
                     drinkMeasrs.push(measr);
                 }
             }
-            console.log(drinkMeasrs);
+                    // console.log(drinkMeasrs);
 
             //pull the info we want to display from the returned data
             drinkInstr = drinkData.strInstructions;
             drinkName = drinkData.strDrink;
             drinkThumb = drinkData.strDrinkThumb;
 
-            console.log(drinkInstr);
-            console.log(drinkName);
-            console.log(drinkThumb);
+            // console.log(drinkInstr);
+            // console.log(drinkName);
+            // console.log(drinkThumb);
 
             // DOM stuff - creating elements to place our content
 
@@ -180,20 +178,6 @@ $(document).ready(function () {
             getIngredientPics();
             $(".directions-div").append(directionsP);
             $(".cocktails").append(drinkDiv);
-
-            // var drinkDiv = $("<div>").addClass('drink-div');
-            // var drinkImg = $("<img>");
-            // drinkImg.addClass('drink-pic responsive-img').attr("src", drinkThumb);
-            // bevName = $("<h4>").text(drinkName);
-            // ingredsP = $("<p>").text("Ingredients: " + measuresIngredients.join(", "));
-            // directionsP = $("<p>").text("Directions: " + drinkInstr);
-
-            // drinkDiv.append(bevName);
-            // drinkDiv.append(drinkImg);
-            // // These lines pushe everything to the DOM so it's visible to the end user. 
-            // $(".ingredients-div").append(ingredsP);
-            // $(".directions-div").append(directionsP);
-            // $(".cocktails").append(drinkDiv);
         })
 
         // reset input field to blank
@@ -209,7 +193,7 @@ $(document).ready(function () {
 
         YouTubeQuery = "&q=" + ($("#searchMusic").val().trim());
         YouTubeQueryURL = YouTubeURL + YouTubeQuery;
-        console.log(YouTubeQueryURL);
+        // console.log(YouTubeQueryURL);
         $(".resp-container").css("padding-top", "0%");
 
         if ($("#searchMusic").val() === null || $("#searchMusic").val() === "" || $("#searchMusic").val() === " ") {
@@ -227,7 +211,7 @@ $(document).ready(function () {
                 method: "GET"
             }).then(function (playlistDataReturn) {
 
-                console.log(playlistDataReturn);
+                // console.log(playlistDataReturn);
 
                 $("#player").hide();
                 $(".playlists").show();
@@ -237,7 +221,7 @@ $(document).ready(function () {
                 $("#searchMusic").val("");
 
                 var playlistData = playlistDataReturn.items;
-                console.log(playlistData);
+                // console.log(playlistData);
 
                 if (playlistData.length === 0) {
 
@@ -315,7 +299,7 @@ $(document).ready(function () {
         for (var k = 0; k < drinkMeasrs.length; k++) {
             var measure = drinkMeasrs[k];
             var ingredient = drinkIngreds[k];
-            console.log(measure + ingredient);
+            // console.log(measure + ingredient);
 
             if (measure !== undefined && ingredient !== undefined) {
                 measuresIngredients.push(measure + ingredient);
@@ -333,8 +317,8 @@ $(document).ready(function () {
             // //reset these arrays to empty so we don't keep adding into them
             drinkIngreds = [];
             drinkMeasrs = [];
-            console.log("drinkIngreds: " + drinkIngreds);
-            console.log("drinkMeasrs: " + drinkMeasrs);
+            // console.log("drinkIngreds: " + drinkIngreds);
+            // console.log("drinkMeasrs: " + drinkMeasrs);
 
             //empty the .cocktails div so we have only one drink showing at a time
             $(".cocktails").empty();
@@ -347,36 +331,36 @@ $(document).ready(function () {
 
             // set returned data to drinkData - easier to type/read
             var drinkData = cocktailDataReturn.drinks[0];
-            console.log(drinkData);
+            // console.log(drinkData);
 
             // each drink has 15 ingredient fields - whether used or not. This loop only pushes the actual ingredients into the drinkIngreds array
             for (var i = 1; i < 16; i++) {
                 ingred = eval("drinkData.strIngredient" + i);
-                console.log("ingred: " + ingred);
+                // console.log("ingred: " + ingred);
                 if (ingred !== "" && ingred !== " " && ingred !== null) {
                     drinkIngreds.push(ingred);
                 }
             }
-            console.log(drinkIngreds);
+                    // console.log(drinkIngreds);
 
             // same thing as above but for the ingredient measurements
             for (var j = 1; j < 16; j++) {
                 measr = eval("drinkData.strMeasure" + j);
-                console.log(measr);
+                // console.log(measr);
                 if (measr != "" && measr != " " && measr !== null) {
                     drinkMeasrs.push(measr);
                 }
             }
-            console.log(drinkMeasrs);
+            // console.log(drinkMeasrs);
 
             //pull the info we want to display from the returned data
             drinkInstr = drinkData.strInstructions;
             drinkName = drinkData.strDrink;
             drinkThumb = drinkData.strDrinkThumb;
 
-            console.log(drinkInstr);
-            console.log(drinkName);
-            console.log(drinkThumb);
+            // console.log(drinkInstr);
+            // console.log(drinkName);
+            // console.log(drinkThumb);
 
             // DOM stuff - creating elements to place our content
 
@@ -396,22 +380,6 @@ $(document).ready(function () {
             getIngredientPics();
             $(".directions-div").append(directionsP);
             $(".cocktails").append(drinkDiv);
-
-            //The below commented out section is the original that the above replaced. If things get fucked, uncomment below and delete above to unfuck things.
-            // ==========================================================================
-            // var drinkDiv = $("<div>").addClass('drink-div');
-            // var drinkImg = $("<img>");
-            // drinkImg.addClass('drink-pic responsive-img').attr("src", drinkThumb);
-            // bevName = $("<h3>").text(drinkName);
-            // ingredsP = $("<p>").text("Ingredients: " + measuresIngredients.join(", "));
-            // directionsP = $("<p>").text("Directions: " + drinkInstr);
-
-            // drinkDiv.append(bevName);
-            // drinkDiv.append(drinkImg);
-            // // These lines push everything to the DOM so it's visible to the end user. 
-            // $(".ingredients-div").append(ingredsP);
-            // $(".directions-div").append(directionsP);
-            // $(".cocktails").append(drinkDiv);
         })
 
         // reset input field to blank
@@ -435,8 +403,8 @@ $(document).ready(function () {
                 ingredientTerm = ingredient;
                 ingredientPicURL = "https://www.thecocktaildb.com/images/ingredients/" + ingredientTerm + "-Medium.png";
 
-                console.log("ingredientTerm: " + ingredientTerm);
-                console.log("ingredientPicURL: " + ingredientPicURL);
+                // console.log("ingredientTerm: " + ingredientTerm);
+                // console.log("ingredientPicURL: " + ingredientPicURL);
 
                 ingredientImg = $("<img>").attr("src", ingredientPicURL).addClass("responsive-img ingredient-image");
                 ingredsFigcaption = $("<figcaption>").text(measure + " " + ingredient);
