@@ -34,7 +34,6 @@ body {
     font-family: 'Shadows Into Light', cursive;
     color: white;
     font-weight: bold;
-    /* font-size: 25px; */
     font-size: 1.5rem;
  }
  #searchInput, #searchMusic {
@@ -76,12 +75,9 @@ body {
     display: inline-block;
     margin-bottom: .5rem;
     margin-top: .5rem;
-    /* width: 50%; */
  }
  .ingredient-image {
     margin: 3px;
-    /* width: auto;
-    height: auto; */
  }
  .mHeader {
     color:black;
