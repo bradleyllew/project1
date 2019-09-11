@@ -211,7 +211,7 @@ $(document).ready(function () {
                 method: "GET"
             }).then(function (playlistDataReturn) {
 
-                console.log(playlistDataReturn);
+                // console.log(playlistDataReturn);
 
                 $("#player").hide();
                 $(".playlists").show();
@@ -351,7 +351,7 @@ $(document).ready(function () {
                     drinkMeasrs.push(measr);
                 }
             }
-            console.log(drinkMeasrs);
+            // console.log(drinkMeasrs);
 
             //pull the info we want to display from the returned data
             drinkInstr = drinkData.strInstructions;
