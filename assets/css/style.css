@@ -17,7 +17,7 @@ body {
     flex-wrap: wrap;
  }
  #background-container {
-    background-color: rgb(0, 0, 0, .4);
+    background-color: rgb(1, 100, 123, .7);
     min-height: 100vh;
  }
  ::placeholder {
