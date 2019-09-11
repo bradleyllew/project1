@@ -7,6 +7,28 @@ $(document).ready(function () {
         location.href = "https://jeff-paul-greco.github.io/project1/search-page";
     });
 
+    // Animate.CSS stuff
+        
+        $(".splashImg").on("mouseenter", function() { 
+            $(".splashImg").addClass("animated pulse") });
+        $(".splashImg").on("mouseleave", function() { 
+            $(".splashImg").removeClass("animated pulse") });
+
+        $(".topLogo").on("mouseenter", function() { 
+            $(".topLogo").addClass("animated jello") });
+        $(".topLogo").on("mouseleave", function() { 
+            $(".topLogo").removeClass("animated jello") });
+
+        $(".splashImg").on("click", function() { 
+            $(this).addClass("animated zoomOut") });
+
+        $(".topLogo").on("click", function() { 
+            $(".topLogo").addClass("animated flip");
+            setTimeout(function() {
+                $(".topLogo").removeClass("animated flip");
+        }, 1000);  
+        });
+
     // SETUP GLOBAL VARIABLES
     // ================================================================
     var cocktailKey = "1/";
