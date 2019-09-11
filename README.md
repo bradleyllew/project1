@@ -15,11 +15,11 @@ Instructions:
 
 5. Once you have searched for a drink, another search field with the placeholder "Music for your mood!"       will appear next to the drink search field. Enter a musical genre or band's name into this box and then    click the search button with a music note icon located beneath the search field.
 
-6. Below the drink information, five search results will appear for playlists matching your musical search    term. Click any of the results to bring that playlist up on screen via the YouTube player. You can also    enter a new search and pull up 5 new results.
+6. Below the drink information, six search results will appear for playlists matching your musical search     term. Click any of the results to bring that playlist up on screen via the YouTube player. You can also    enter a new search and pull up six new results.
 
-7. Now you can play and control this playlist via the YouTube player's controls. There are two buttons        that appear directly above the youtube player. The first, labeled "back to result", will return you to     the 5 playlists that were returned on your last search. The second button, labeled "hide/show", will       collapse the YouTube player out of view, tidying up your screen. 
+7. Now you can play and control this playlist via the YouTube player's controls. There are two buttons        that appear directly above the youtube player. The first, labeled "back to result", will return you to     the six playlists that were returned on your last search. The second button, labeled "hide/show", will     collapse the YouTube player out of view, tidying up your screen. 
 
-8. Start a playlist and then hit the "hide/show" button and it will play in the background and change         songs automatically. Now that you've set the mood, reference our handy drink recipes and enjoy your         House Party!
+8. Start a playlist and then hit the "hide/show" button and it will play in the background and change         songs automatically. Now that you've set the mood, reference our handy drink recipes and enjoy your        House Party!
 
 Under the Hood:
 
