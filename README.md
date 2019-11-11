@@ -26,6 +26,7 @@ Under the Hood:
 To make it all work, our site utilizes AJAX calls to both YouTube and TheCocktailDB's APIs. TheCocktail DB returns a JSON object that is then used as a reference to manipulate our various points of drink data. The YouTube API returns a JSON object with 4 YouTube playlists matching the search term captured by the user. By altering our TheCocktailDB Query URL, we have included the option to generate a random drink search. This is done by utilizing random.php in the url. We have also programmed various modals which will appear as error messages in the event of failed searches. If either search is executed with nothing written in their corresponding text field, then an error message will display on screen. If you do type a search term and it returns zero results, then a differents error message will display. A hide/show button was included to switch between the YouTube player appearing and disappearing on screen. This was done by wiring a click event to execute .toggle() on said element. On the style side we began with a wireframe model using Adobe XD. Then we implemented the Materialize CSS library and grid system, along with flexbox elements, to provide a dynamic and responsive UI.  
 
 Deployed Link: https://bradleyllew.github.io/project1/
+
 House Party Coding Team:
 
 Jarkko Haarla, Bradley Cordle, Jeff Greco, Jeffrey Huddleston
